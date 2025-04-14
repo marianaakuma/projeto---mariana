@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f4f8; /* Light background for the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 900px; /* Adjust width as needed */
+    height: 600px; /* Adjust height as needed */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Important for clip-path */
+    position: relative;
+}
+
+.left-panel,
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.left-panel {
+    background-color: #fff;
+    align-items: center; /* Center logo horizontally */
+    text-align: center;
+}
+
+.right-panel {
+    background-color: #E0F2FE; /* Light Blue Background */
+    /* Create the slanted effect using clip-path */
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+    margin-left: -100px; /* Overlap slightly to hide the seam */
+    z-index: 1; /* Ensure right panel is above left */
+}
+
+.logo-container {
+    color: #0A2540; /* Dark Blue Text */
+    padding-right: 100px; /* Adjust padding so it doesn't overlap with the clip-path */
+}
+
+.logo {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.logo-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo-container p {
+    font-size: 0.9em;
+    color: #4A5568; /* Grayish text */
+    margin-top: 0;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 320px;
+    padding-left: 50px; /* Adjust padding because of clip-path */
+    color: #1E3A8A; /* Darker Blue for text on light blue */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #D1D5DB; /* Light gray border */
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 0.95em;
+    box-sizing: border-box;
+}
+
+.form-group input[type="email"]::placeholder,
+.form-group input[type="password"]::placeholder {
+    color: #9CA3AF; /* Lighter gray for placeholder */
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.8em;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #2563EB; /* Blue accent for checkbox */
+}
+
+.remember-me label {
+    margin-bottom: 0; /* Override form-group label style */
+    font-weight: 400;
+     color: #1E3A8A;
+}
+
+.forgot-password {
+    color: #2563EB; /* Blue link */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.signin-button {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2563EB; /* Primary Blue */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.signin-button:hover {
+    background-color: #1D4ED8; /* Darker Blue on hover */
+}
+
+/* Basic Responsive Adjustments */
+@media (max-width: 950px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        max-width: 500px;
+        height: auto;
+        margin: 20px 0; /* Add some margin */
+    }
+
+    .right-panel {
+        clip-path: none; /* Remove clip-path on smaller screens */
+        margin-left: 0;
+        padding: 40px;
+        border-radius: 0 0 10px 10px; /* Adjust border radius */
+    }
+
+    .left-panel {
+        border-radius: 10px 10px 0 0; /* Adjust border radius */
+         padding: 40px; /* Ensure padding consistency */
+         padding-right: 40px; /* Reset padding adjustment */
+    }
+
+     .logo-container {
+        padding-right: 0; /* Reset padding adjustment */
+    }
+
+    .login-form {
+        padding-left: 0; /* Reset padding adjustment */
+        max-width: none;
+    }
+}
+
